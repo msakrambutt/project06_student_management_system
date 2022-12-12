@@ -1,0 +1,35 @@
+{
+  "name": "sbutt_student_management",
+  "version": "1.0.0",
+  "description": "Student Management System",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msakrambutt/project06_student_management_system.git"
+  },
+  "keywords": [
+    "STM"
+  ],
+  "author": "Shahid Butt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msakrambutt/project06_student_management_system/issues"
+  },
+  "homepage": "https://github.com/msakrambutt/project06_student_management_system#readme",
+  "devDependencies": {
+    "@types/chalk-animation": "^1.6.1",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.11.13"
+  },
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "chalk-animation": "^2.0.3",
+    "inquirer": "^9.1.4",
+    "node-banner": "^1.4.0"
+  }
+}
