@@ -1,13 +1,15 @@
 {
   "name": "sbutt_student_management",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Student Management System",
   "main": "index.js",
   "type": "module",
-  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node ./index.js"
+  },
+  "bin": {
+    "sbutt_student_management": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,7 @@
     "chalk": "^5.2.0",
     "chalk-animation": "^2.0.3",
     "inquirer": "^9.1.4",
-    "node-banner": "^1.4.0"
+    "node-banner": "^1.4.0",
+    "sbutt_student_management": "^1.0.1"
   }
 }
