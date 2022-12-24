@@ -1,27 +1,35 @@
 #! /usr/bin/env node
-import chalk from "chalk";
-export class Batch {
-    count = 0;
-    batchId = [];
-    batchName = [];
-    year = [];
-    addNewBatch() {
-        let batchDate = new Date();
+"use strict";
+exports.__esModule = true;
+exports.Batch = void 0;
+var chalk_1 = require("chalk");
+var Batch = /** @class */ (function () {
+    function Batch() {
+        this.count = 0;
+        this.batchId = [];
+        this.batchName = [];
+        this.year = [];
+    }
+    Batch.prototype.addNewBatch = function () {
+        var batchDate = new Date();
         this.batchId.push(++this.count);
         this.batchName.push("Batch " + this.count);
         this.year.push(batchDate.getFullYear());
-        console.log(chalk.yellow(`New Batch has been Created Automatically...\n`));
-    }
-    getBatchDetails() {
+        console.log(chalk_1["default"].yellow("New Batch has been Created Automatically...\n"));
+    };
+    Batch.prototype.getBatchDetails = function () {
+        var _this = this;
         if (this.batchId.length) {
-            this.batchId.forEach((num1, index) => {
-                const num2 = this.batchName[index];
-                const num3 = this.year[index];
-                console.log(chalk.green(`Batch ID: ${num1} Batch Name: ${num2} Year: ${num3} `));
+            this.batchId.forEach(function (num1, index) {
+                var num2 = _this.batchName[index];
+                var num3 = _this.year[index];
+                console.log(chalk_1["default"].green("Batch ID: ".concat(num1, " Batch Name: ").concat(num2, " Year: ").concat(num3, " ")));
             });
         }
         else {
-            console.log(chalk.red("Batch not available"));
+            console.log(chalk_1["default"].red("Batch not available"));
         }
-    }
-}
+    };
+    return Batch;
+}());
+exports.Batch = Batch;

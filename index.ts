@@ -30,20 +30,6 @@ let cid=0;
 
 
 //validate user input
-function validateInput(input:string): string|boolean
-{
- let  regexAlpha1 =  /^[A-Za-z\s]*$/; // only Aplhabets  and space allowed
- ///^[0-9a-zA-Z]+$/(alphanumeic allowed)
-    let  regexAlpha =  /^[A-Za-z]+$/; // only Aplhabets allowed
-        if(!input.match(regexAlpha)){
-            return "Please enter Alphabets"; 
-        }else if(input=== ""){
-            return "Blank field now allowed,please fill the field"; 
-        }else{
-            return true;
-        }
-}
-
 function validateStudent(input:string):string|boolean{
     let  regexAlpha1 =  /^[A-Za-z\s]*$/; // only Aplhabets  and space allowed
     if(!input.match(regexAlpha1)){
@@ -55,7 +41,6 @@ function validateStudent(input:string):string|boolean{
     }
 
 }
-
 function validateEmail(input:string):string|boolean{
         let  regexAlpha1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ; // email verified
         if(!input.match(regexAlpha1)){
@@ -116,9 +101,7 @@ async function main()
         {
             name: "addNewStudent",
             type: "list",
-            choices:["Add Student","Delete Student","Show Details","Main Menue"],
-            
-           
+            choices:["Add Student","Delete Student","Show Details","Main Menue"],          
         }
     ]);
 
@@ -201,8 +184,7 @@ async function main()
 
     }
     else if(answers1.addNewStudent==="Delete Student"){
-        //
-        if(myStudent.studentId.length>0){
+       if(myStudent.studentId.length>0){
         const st_delete=await inquirer.prompt([
             {
                 name:"stid",
@@ -236,7 +218,6 @@ async function main()
             console.log(chalk.red(`Student record not found`));
 
         }   
-        //
     }else if(answers1.addNewStudent==="Show Details"){
         myStudent.getStudentDetails();
 
@@ -247,16 +228,13 @@ async function main()
     }while(studentContinue)
 
     }
-
     if(answers.createCourse=== "Course"){
     do{
         const answers:{addNewCourse:"Add New Course"|"Show Course Details"|"Main Menue"}= await inquirer.prompt([//course edit|Details|Delete
         {
             name: "addNewCourse",
             type: "list",
-            choices:["Add New Course","Delete Course","Show Course Details","Main Menue"]
-            
-           
+            choices:["Add New Course","Delete Course","Show Course Details","Main Menue"]      
         }
     ]);
     if(answers.addNewCourse==="Add New Course"){
@@ -284,7 +262,6 @@ async function main()
                     }
                 
                 }
-                
             },
             {
                 name:"courseDescription",
@@ -302,7 +279,6 @@ async function main()
                     }
                 
                 }
-
             },
             {
                 name:"courseFee",
@@ -368,8 +344,6 @@ async function main()
 
     ///batch section
     if(answers.createCourse=== "Batch"){
-
-
     do{//Create new batch automatically
         batchContinue=true;
         const answers:{addNewBatch:"Add New Batch"|"Show Batch Details"|"Main Menue"}= await inquirer.prompt([//course edit|Details|Delete
@@ -392,7 +366,6 @@ async function main()
     }while(batchContinue)
        
     }
-    
     if(answers.createCourse=== "Enroll"){//Enroll or Registration section
         //put condition if student and course exist then run enroll part
         // Start Enroll Section 
@@ -423,9 +396,7 @@ async function main()
     let pwdOk=myStudent.password.find(value=>value===userLogin.userpwd);
     if(signOk!==undefined && pwdOk!==undefined){
         user_signIn=true;
-        signStudentId=myStudent.studentLogin.indexOf(signOk);
-       // console.log(signStudentId);
-        
+        signStudentId=myStudent.studentLogin.indexOf(signOk); 
     }
 
     if(user_signIn){
@@ -449,7 +420,6 @@ async function main()
     ]);
     if(answers.addNewEnroll==="New Enroll"){
         do{//New Enrollment or Registration start
-        //condition first time student enroll or second time
         if(myRegistration.registration_status[signStudentId]===undefined){
             
             const course=await inquirer.prompt([
@@ -612,8 +582,6 @@ async function main()
     }else{
         console.log(chalk.red(`Please first Enroll yourself then pay fee...`));
     }
-
-
 //end fee section
     }else
     {
@@ -678,7 +646,6 @@ async function main()
         else{
         console.log("Students not Exist, First Create it \n");
         }
-        ////
     }
     if(answers.createCourse=== "Exit"){
         mainMenueContinue=false;
@@ -699,4 +666,3 @@ async function welcome() {
 
 }
 welcome();
-

@@ -1,16 +1,21 @@
 #! /usr/bin/env node
-export class Fee {
-    count = 0;
-    fee_id = [];
-    date = [];
-    fee_student_id = [];
-    fee_course_name = [];
-    fee_batch_name = [];
-    payment_mode = [];
-    invoice_no = [];
-    fee_paid = [];
-    addNewFee(feeStudent, feeCourse, batchNo, paymentMode, invoiceNo, feepaid) {
-        let fee_date = new Date();
+"use strict";
+exports.__esModule = true;
+exports.Fee = void 0;
+var Fee = /** @class */ (function () {
+    function Fee() {
+        this.count = 0;
+        this.fee_id = [];
+        this.date = [];
+        this.fee_student_id = [];
+        this.fee_course_name = [];
+        this.fee_batch_name = [];
+        this.payment_mode = [];
+        this.invoice_no = [];
+        this.fee_paid = [];
+    }
+    Fee.prototype.addNewFee = function (feeStudent, feeCourse, batchNo, paymentMode, invoiceNo, feepaid) {
+        var fee_date = new Date();
         this.fee_id.push(++this.count);
         this.fee_student_id.push(feeStudent);
         this.date.push(fee_date);
@@ -19,5 +24,7 @@ export class Fee {
         this.payment_mode.push(paymentMode);
         this.invoice_no.push(invoiceNo);
         this.fee_paid.push(feepaid);
-    }
-}
+    };
+    return Fee;
+}());
+exports.Fee = Fee;
